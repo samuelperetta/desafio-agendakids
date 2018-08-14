@@ -1,0 +1,14 @@
+<div class='center form-card mdl-card mdl-shadow--3dp'>
+  <%= render 'layouts/errors_message', object: @school_unity if @school_unity.errors.any? %>
+  <%= form_for @school_unity do |f| %>
+      <div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+        <%= f.label :name, class: 'mdl-textfield__label' %>
+        <%= f.text_field :name, class: 'mdl-textfield__input' %>
+      </div>
+      <div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+        <%= f.label :address, class: 'mdl-textfield__label' %>
+        <%= f.text_field :address, class: 'mdl-textfield__input' %>
+      </div>
+      <%= f.submit t('save'), class: 'login-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
+  <% end %>
+</div>

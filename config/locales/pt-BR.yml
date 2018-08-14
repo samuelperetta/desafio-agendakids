@@ -1,0 +1,50 @@
+pt-BR:
+  app_name: Agenda Edu Desafio
+  logout: Sair
+  save: Salvar
+  edit: Editar
+  destroy: Apagar
+  confirm_destroy: Deseja apagar?
+  show: Detalhes
+
+  school_unities:
+    new:
+      new_school_unity: Nova unidade
+    saved: Unidade salva com sucesso
+    edit:
+      edit_school_unity: Editar unidade
+    show:
+      show_school_unity: Detalhes da unidade
+
+  activerecord:
+    models:
+      school:
+        one: Escola
+        other: Escolas
+      school_unity:
+        one: Unidade
+        other: Unidades
+      school_class:
+        one: Turma
+        other: Turmas
+      teacher:
+        one: Professor
+        other: Professores
+      student:
+        one: Aluno
+        other: Alunos
+      responsible:
+        one: Responsável
+        other: Responsáveis
+    attributes:
+      school:
+        name: Nome
+        cnpj: CNPJ
+      school_unity:
+        name:  Nome
+        address: Endereço
+    errors:
+      format: ! '%{attribute} %{message}'
+      messages:
+        blank: não pode ficar em branco
+        taken: já está em uso

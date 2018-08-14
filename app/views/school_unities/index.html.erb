@@ -1,0 +1,46 @@
+<h3 class='school-unity-title'><%= SchoolUnity.model_name.human count: 2 %></h3>
+
+<table class='school-unity-title mdl-data-table mdl-js-data-table mdl-shadow--3dp'>
+  <thead>
+  <tr>
+    <th class='mdl-data-table__cell--non-numeric'><%= SchoolUnity.human_attribute_name :name %></th>
+    <th class='mdl-data-table__cell--non-numeric'><%= SchoolUnity.human_attribute_name :address %></th>
+    <th colspan='3'></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @school_unities.each do |school_unity| %>
+      <tr>
+        <td class='mdl-data-table__cell--non-numeric'><%= school_unity.name %></td>
+        <td class='mdl-data-table__cell--non-numeric'><%= school_unity.address %></td>
+        <td>
+          <%= form_for school_unity, method: :get do |f| %>
+              <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                <i class="material-icons">remove_red_eye</i>
+              </button>
+          <% end %>
+        </td>
+        <td>
+          <%= form_for '', url: edit_school_unity_path(school_unity), method: :get do |f| %>
+              <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                <i class="material-icons">edit</i>
+              </button>
+          <% end %>
+        </td>
+        <td>
+          <%= form_for school_unity, method: :delete, data: {confirm: t('confirm_destroy')} do |f| %>
+              <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                <i class="material-icons">delete</i>
+              </button>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= form_for '', url: new_school_unity_path, method: :get do |f| %>
+  <button class="fab-button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+    <i class="material-icons">add</i>
+  </button>
+<% end %>

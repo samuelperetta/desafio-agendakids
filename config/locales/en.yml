@@ -1,0 +1,12 @@
+en:
+  app_name: Agenda Edu Desafio
+  logout: Logout
+  save: Save
+  show: Show
+  edit: Edit
+  destroy: Destroy
+  confirm_destroy: Do you want to destroy?
+
+  school_unities:
+    new:
+      new_school_unity: New school unity

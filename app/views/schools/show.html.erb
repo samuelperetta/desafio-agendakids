@@ -1,0 +1,26 @@
+<h3 class="school-name-title"><%= current_user.school.name %></h3>
+
+<table class='center mdl-data-table mdl-js-data-table mdl-shadow--3dp'>
+  <thead>
+  <tr>
+    <th class='mdl-data-table__cell--non-numeric'><%= SchoolUnity.model_name.human count: 2 %></th>
+    <th><%= SchoolClass.model_name.human count: 2 %></th>
+    <th><%= Teacher.model_name.human count: 2 %></th>
+    <th><%= Student.model_name.human count: 2 %></th>
+    <th><%= Responsible.model_name.human count: 2 %></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @school_unities.each do |school_unity| %>
+      <tr>
+        <td class='mdl-data-table__cell--non-numeric'><%= school_unity.name %></td>
+        <td><%= school_unity.school_classes.count %></td>
+        <td><%= school_unity.teachers.count %></td>
+        <td><%= Student.joins(:school_classes).where('school_classes.school_unity_id': school_unity.id).count %></td>
+        <td><%= Responsible.joins(students: :school_classes).where('school_classes.school_unity_id': school_unity.id).count %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+

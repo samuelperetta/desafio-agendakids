@@ -1,0 +1,24 @@
+<div class="login-background">
+  <div class="mdl-grid">
+    <div class='login-center login-card mdl-card mdl-shadow--3dp'>
+
+        <h4><%= t('.login') %></h4>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+            <%= f.label :email, class: 'mdl-textfield__label' %>
+            <%= f.email_field :email, autofocus: true, class: 'mdl-textfield__input' %>
+          </div>
+
+          <div class="field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <%= f.label t('.password'), class: 'mdl-textfield__label' %>
+            <%= f.password_field :password, autocomplete: "off", class: 'mdl-textfield__input' %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit t('.login'), class: 'login-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

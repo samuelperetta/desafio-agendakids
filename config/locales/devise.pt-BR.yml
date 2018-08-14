@@ -1,0 +1,7 @@
+pt-BR:
+  devise:
+    sessions:
+      new:
+        login: Entrar
+        email: Email
+        password: Senha
