@@ -15,6 +15,20 @@ pt-BR:
       edit_school_unity: Editar unidade
     show:
       show_school_unity: Detalhes da unidade
+  school_classes:
+    shift:
+      morning: Manhã
+      afternoon: Tarde
+      night: Noite
+  teachers:
+    new:
+      new_teacher: Novo Professor
+    saved: Professor salvo com sucesso
+    edit:
+      edit_teacher: Editar Professor
+    show: 
+      show_teacher: Dados Professor
+
 
   activerecord:
     models:
@@ -43,6 +57,12 @@ pt-BR:
       school_unity:
         name:  Nome
         address: Endereço
+      school_class:
+        name:  Nome
+        shift: Turno
+      teacher:
+        name: Nome
+        registration: Registro
     errors:
       format: ! '%{attribute} %{message}'
       messages:

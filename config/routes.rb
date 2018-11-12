@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :school_classes
   get 'schools/show'
 
   devise_scope :user do
@@ -14,4 +15,5 @@ Rails.application.routes.draw do
 
   resources :school_unities
   resources :school_classes
+  resources :teachers
 end

@@ -5,8 +5,8 @@
       <div class="mdl-layout-spacer"></div>
         <%= link_to School.model_name.human, schools_show_path, method: :get, class: "mdl-navigation__link" %>
         <%= link_to SchoolUnity.model_name.human(count: 2), school_unities_path, method: :get, class: "mdl-navigation__link" %>
-        <!--<a class="mdl-navigation__link" href=""><%= SchoolClass.model_name.human count: 2 %></a>-->
-        <!--<a class="mdl-navigation__link" href=""><%= Teacher.model_name.human count: 2 %></a>-->
+        <%= link_to SchoolClass.model_name.human(count: 2), school_classes_path, method: :get, class: "mdl-navigation__link" %>
+        <%= link_to Teacher.model_name.human(count: 2), teachers_path, method: :get, class: "mdl-navigation__link" %>
         <!--<a class="mdl-navigation__link" href=""><%= Student.model_name.human count: 2 %></a>-->
         <!--<a class="mdl-navigation__link" href=""><%= Responsible.model_name.human count: 2 %></a>-->
         <%= link_to t('logout'), destroy_user_session_path, method: :delete, class: 'mdl-navigation__link' %>
@@ -17,7 +17,7 @@
     <nav class="mdl-navigation">
       <%= link_to School.model_name.human, schools_show_path, method: :get, class: "mdl-navigation__link" %>
       <%= link_to SchoolUnity.model_name.human(count: 2), school_unities_path, method: :get, class: "mdl-navigation__link" %>
-      <!--<a class="mdl-navigation__link" href=""><%= SchoolClass.model_name.human count: 2 %></a>-->
+      <a class="mdl-navigation__link" href=""><%= SchoolClass.model_name.human count: 2 %></a>
       <!--<a class="mdl-navigation__link" href=""><%= Teacher.model_name.human count: 2 %></a>-->
       <!--<a class="mdl-navigation__link" href=""><%= Student.model_name.human count: 2 %></a>-->
       <!--<a class="mdl-navigation__link" href=""><%= Responsible.model_name.human count: 2 %></a>-->

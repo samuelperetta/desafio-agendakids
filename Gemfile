@@ -43,7 +43,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
 
   # Migrating to Factory 'Bot' instead 'Girl'
-  gem 'factory_bot'
+  gem 'factory_bot_rails'
 
   #Use faker for fake data
   gem 'faker'
