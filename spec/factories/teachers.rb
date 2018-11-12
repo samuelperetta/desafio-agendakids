@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :teacher do
     name { Faker::Name.name }
     registration { Faker::Number.number(6) }

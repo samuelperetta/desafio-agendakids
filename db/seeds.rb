@@ -5,13 +5,13 @@ require 'factory_girl_rails'
 #endregion
 
 #region Schools
-@school = FactoryGirl.create(:school)
+@school = FactoryBot.create(:school)
 @user.update school: @school
 #endregion
 
 #region School Unities
 2.times do
-  school_unity = FactoryGirl.build(:school_unity)
+  school_unity = FactoryBot.build(:school_unity)
   school_unity.school = @school
   school_unity.save
 end
@@ -19,7 +19,7 @@ end
 
 #region Teachers
 5.times do
-  teacher = FactoryGirl.build(:teacher)
+  teacher = FactoryBot.build(:teacher)
   teacher.school_unities << SchoolUnity.offset(rand(SchoolUnity.count)).limit(1).first
   teacher.save
 end
@@ -27,7 +27,7 @@ end
 
 #region School Classes
 5.times do
-  school_class = FactoryGirl.build(:school_class)
+  school_class = FactoryBot.build(:school_class)
   school_class.school_unity = SchoolUnity.offset(rand(SchoolUnity.count)).limit(1).first
   school_class.save
 end
@@ -35,7 +35,7 @@ end
 
 #region Students
 10.times do
-  student = FactoryGirl.build(:student)
+  student = FactoryBot.build(:student)
   student.school_classes << SchoolClass.offset(rand(SchoolClass.count)).limit(1).first
   student.save
 end
@@ -43,7 +43,7 @@ end
 
 #region Responsibles
 15.times do
-  responsible = FactoryGirl.build(:responsible)
+  responsible = FactoryBot.build(:responsible)
   responsible.students << Student.offset(rand(Student.count)).limit(1).first
   responsible.students << Student.offset(rand(Student.count)).limit(1).first
   responsible.save

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :school do
     name { Faker::University.name}
     cnpj { CNPJ.generate }
