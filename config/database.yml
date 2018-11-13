@@ -88,7 +88,7 @@ staging:
   password: <%= ENV['AGENDA-KIDS-TEST_DATABASE_PASSWORD'] %>
 
 production:
-  <<: *default
-  database: agenda-kids-test_production
-  username: agenda-kids-test
-  password: <%= ENV['AGENDA-KIDS-TEST_DATABASE_PASSWORD'] %>
+  host: ec2-54-225-98-131.compute-1.amazonaws.com
+  database: d5190r5hmlq9qe
+  username: xxhiuswtxesrki
+  password: 2dece647432b1f1abf6822b5408a46a9110cc95d13c29b254e650d47dda8a9e3
