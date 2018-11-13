@@ -38,6 +38,12 @@ gem 'devise'
 # Migrating to Factory 'Bot' instead 'Girl'
 gem 'factory_bot_rails'
 
+#Use faker for fake data
+gem 'faker'
+
+#Use for cpf and cpnj generation and validation
+gem 'cpf_cnpj'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -45,11 +51,7 @@ group :development, :test do
   #Use rspec for tests
   gem 'rspec-rails', '~> 3.5'
 
-  #Use faker for fake data
-  gem 'faker'
-
-  #Use for cpf and cpnj generation and validation
-  gem 'cpf_cnpj'
+  
 end
 
 group :development do
