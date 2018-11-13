@@ -1,4 +1,4 @@
-require 'factory_girl_rails'
+require 'factory_bot_rails'
 
 #region Users
 @user = User.first_or_create email: 'escola@agendaedu.com', password:'12345678', password_confirmation:'12345678'
