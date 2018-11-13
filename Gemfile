@@ -35,15 +35,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use devise for user authentication
 gem 'devise'
 
+# Migrating to Factory 'Bot' instead 'Girl'
+gem 'factory_bot_rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
   #Use rspec for tests
   gem 'rspec-rails', '~> 3.5'
-
-  # Migrating to Factory 'Bot' instead 'Girl'
-  gem 'factory_bot_rails'
 
   #Use faker for fake data
   gem 'faker'
