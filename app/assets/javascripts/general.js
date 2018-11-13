@@ -3,6 +3,7 @@
 	{
 		var index = function ()
 		{
+			loadSelect2();
 			ajaxLoad();
 		};
 
@@ -13,6 +14,17 @@
 		    	$('.ajax-content').load($(this).attr('href'));
 		  	});
 		};
+
+		var loadSelect2 = function()
+		{
+			$(".js-select2").select2({
+				placeholder: "Escolha um responsável",
+	      theme: "material"
+    	});
+    
+    	$(".select2-selection__arrow").addClass("material-icons").html("arrow_drop_down");
+		};
+	
 
 		return {
 			init: index

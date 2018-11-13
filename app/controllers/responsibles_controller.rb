@@ -1,4 +1,5 @@
 class ResponsiblesController   < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_responsible, only: [:show, :edit, :update, :destroy]
 
   # GET /responsibles

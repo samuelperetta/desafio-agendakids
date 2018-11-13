@@ -1,4 +1,5 @@
 class SchoolUnitiesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_school_unity, only: [:show, :edit, :update, :destroy]
 
   def index
