@@ -16,6 +16,13 @@ pt-BR:
     show:
       show_school_unity: Detalhes da unidade
   school_classes:
+    new:
+      new_school_class: Nova Turma
+    saved: Turma salva com sucesso
+    edit:
+      edit_school_class: Editar Turma
+    show:
+      show_school_class: Detalhes da Turma
     shift:
       morning: Manhã
       afternoon: Tarde
@@ -28,6 +35,22 @@ pt-BR:
       edit_teacher: Editar Professor
     show: 
       show_teacher: Dados Professor
+  students:
+    new:
+      new_student: Novo Aluno
+    saved: Aluno salvo com sucesso
+    edit:
+      edit_student: Editar Aluno
+    show: 
+      show_student: Dados Aluno
+  responsibles:
+    new:
+      new_responsible: Novo Responsável
+    saved: Responsável salvo com sucesso
+    edit:
+      edit_responsible: Editar Responsável
+    show: 
+      show_responsible: Dados Responsável
 
 
   activerecord:
@@ -63,8 +86,19 @@ pt-BR:
       teacher:
         name: Nome
         registration: Registro
+      student:
+        name: Nome
+        registration: Registro
+      responsible:
+        name: Nome
+        email: E-mail
     errors:
       format: ! '%{attribute} %{message}'
       messages:
         blank: não pode ficar em branco
         taken: já está em uso
+      models:
+        teacher:
+          attributes:
+            registration:
+              too_long: inválido

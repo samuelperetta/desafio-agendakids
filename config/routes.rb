@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :school_unities
   resources :school_classes
   resources :teachers
+  resources :students
+  resources :responsibles
 end

@@ -3,28 +3,22 @@
     <div class="mdl-layout__header-row">
       <span class="mdl-layout-title"><%= t('app_name') %></span>
       <div class="mdl-layout-spacer"></div>
-        <%= link_to School.model_name.human, schools_show_path, method: :get, class: "mdl-navigation__link" %>
-        <%= link_to SchoolUnity.model_name.human(count: 2), school_unities_path, method: :get, class: "mdl-navigation__link" %>
-        <%= link_to SchoolClass.model_name.human(count: 2), school_classes_path, method: :get, class: "mdl-navigation__link" %>
-        <%= link_to Teacher.model_name.human(count: 2), teachers_path, method: :get, class: "mdl-navigation__link" %>
-        <!--<a class="mdl-navigation__link" href=""><%= Student.model_name.human count: 2 %></a>-->
-        <!--<a class="mdl-navigation__link" href=""><%= Responsible.model_name.human count: 2 %></a>-->
-        <%= link_to t('logout'), destroy_user_session_path, method: :delete, class: 'mdl-navigation__link' %>
+      <%= render 'layouts/nav' if current_user%>
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title"><%= t('app_name') %></span>
     <nav class="mdl-navigation">
-      <%= link_to School.model_name.human, schools_show_path, method: :get, class: "mdl-navigation__link" %>
-      <%= link_to SchoolUnity.model_name.human(count: 2), school_unities_path, method: :get, class: "mdl-navigation__link" %>
-      <a class="mdl-navigation__link" href=""><%= SchoolClass.model_name.human count: 2 %></a>
-      <!--<a class="mdl-navigation__link" href=""><%= Teacher.model_name.human count: 2 %></a>-->
-      <!--<a class="mdl-navigation__link" href=""><%= Student.model_name.human count: 2 %></a>-->
-      <!--<a class="mdl-navigation__link" href=""><%= Responsible.model_name.human count: 2 %></a>-->
-      <%= link_to t('logout'), destroy_user_session_path, method: :delete, class: 'mdl-navigation__link' %>
+      <span class="mdl-layout-title"><%= t('app_name') %></span>
+      <div class="mdl-layout-spacer"></div>
+      <%= render 'layouts/nav' if current_user%>
     </nav>
   </div>
   <main class="mdl-layout__content">
     <div class="page-content"><%= yield %></div>
   </main>
 </div>
+
+<button onclick="window.history.back();" 
+  class="back-button mdl-button mdl-js-button mdl-button--fab">
+  <i class="material-icons">arrow_backward</i>
+</button>

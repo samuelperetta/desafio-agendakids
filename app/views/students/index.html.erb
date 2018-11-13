@@ -1,0 +1,46 @@
+<h3 class='school-unity-title'><%= Student.model_name.human count: 2 %></h3>
+
+<table class='school-unity-title mdl-data-table mdl-js-data-table mdl-shadow--3dp'>
+  <thead>
+  <tr>
+    <th class='mdl-data-table__cell--non-numeric'><%= Student.human_attribute_name :name %></th>
+    <th class='mdl-data-table__cell--non-numeric'><%= Student.human_attribute_name :registration %></th>
+    <th colspan='3'></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @students.each do |student| %>
+      <tr>
+        <td class='mdl-data-table__cell--non-numeric'><%= student.name %></td>
+        <td class='mdl-data-table__cell--non-numeric'><%= student.registration %></td>
+        <td>
+          <%= form_for student, method: :get do |f| %>
+              <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                <i class="material-icons">remove_red_eye</i>
+              </button>
+          <% end %>
+        </td>
+        <td>
+          <%= form_for '', url: edit_student_path(student), method: :get do |f| %>
+              <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                <i class="material-icons">edit</i>
+              </button>
+          <% end %>
+        </td>
+        <td>
+          <%= form_for student, method: :delete, data: {confirm: t('confirm_destroy')} do |f| %>
+              <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                <i class="material-icons">delete</i>
+              </button>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= form_for '', url: new_student_path, method: :get do |f| %>
+  <button class="fab-button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+    <i class="material-icons">add</i>
+  </button>
+<% end %>

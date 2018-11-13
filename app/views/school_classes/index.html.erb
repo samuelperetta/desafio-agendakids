@@ -1,10 +1,11 @@
-<h3 class='school-class-title'><%= SchoolClass.model_name.human count: 2 %></h3>
+<h3 class='school-class-title'><%= SchoolClass.model_name.human count: @school_classes.count %></h3>
 
 <table class='school-class-title mdl-data-table mdl-js-data-table mdl-shadow--3dp'>
   <thead>
   <tr>
     <th class='mdl-data-table__cell--non-numeric'><%= SchoolClass.human_attribute_name :name %></th>
     <th class='mdl-data-table__cell--non-numeric'><%= SchoolClass.human_attribute_name :shift %></th>
+    <th class='mdl-data-table__cell--non-numeric'><%= SchoolUnity.model_name.human %></th>
     <th class='mdl-data-table__cell--center' colspan='3'>Ações</th>
   </tr>
   </thead>
@@ -14,6 +15,7 @@
       <tr>
         <td class='mdl-data-table__cell--non-numeric'><%= school_class.name %></td>
         <td class='mdl-data-table__cell--non-numeric'><%= t("school_classes.shift.#{school_class.shift}") %></td>
+        <td class='mdl-data-table__cell--non-numeric'><%= school_class.school_unity.name %></td>
         <td>
           <%= form_for school_class, method: :get do |f| %>
               <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">

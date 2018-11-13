@@ -1,22 +1,17 @@
-<div class='center form-card mdl-card mdl-shadow--3dp'>
-  <%= render 'layouts/errors_message', object: @school_class if @school_class.errors.any? %>
+<%= render 'layouts/errors_message', object: @school_class if @school_class.errors.any? %>
+<div class='center form-card mdl-card mdl-shadow--3dp'>  
   <%= form_for @school_class do |f| %>
       <div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
         <%= f.label :name, class: 'mdl-textfield__label' %>
         <%= f.text_field :name, class: 'mdl-textfield__input' %>
       </div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-        <%= f.text_field :shift, class: 'mdl-textfield__input', :autocomplete => :off %>
-        <%= f.hidden_field :shift, :value => "" %>
-        <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <%= f.label :shift, class: 'mdl-textfield__label' %>
-        <ul for="school_class_shift" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-          <% SchoolClass.shifts.each do |s| %>
-              <li class="mdl-menu__item" data-val="<%= s[0] %>">
-                <%= t("school_classes.shift.#{s[0]}") %>
-              </li>
-          <% end %>
-        </ul>
+        <%= f.select(:shift, SchoolClass.shifts.keys.map {|shift| [t("school_classes.shift.#{shift}"),shift]}, {:include_blank => nil }, {:class => "mdl-textfield__input"} ) %>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= f.label :school_class_school_unity_id, class: 'mdl-textfield__label' %>
+        <%= collection_select(:school_class, :school_unity_id, SchoolUnity.all, :id, :name, { :prompt => false } , {:class => "mdl-textfield__input"} ) %>
       </div>
       <%= f.submit t('save'), class: 'login-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
   <% end %>

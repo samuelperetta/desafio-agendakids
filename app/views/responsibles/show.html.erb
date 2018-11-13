@@ -1,0 +1,24 @@
+<h3 class='form-title'><%= t('.show_responsible') %></h3>
+<div class='center show-card form-card mdl-card mdl-shadow--3dp'>
+  <div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+    <%= label_tag Responsible.human_attribute_name :name %>
+    <h5><%= @responsible.name %></h5>
+  </div>
+  <div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+	  <%= Responsible.human_attribute_name :email %>
+	  <h5><%= @responsible.email %></h5>
+	</div>
+	<div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+	  <%= Student.model_name.human count: @responsible.students.count %>
+	  <ul class="demo-list-item mdl-list">
+	  	<% @responsible.students.each do |s| %>
+			  <li class="mdl-list__item">
+			    <span class="mdl-list__item-primary-content">
+				    <i class="material-icons mdl-list__item-icon">person</i>
+				    <%= s.name %>
+					</span>
+		  	</li>
+	  	<% end %>
+		</ul>
+	</div>
+</div>

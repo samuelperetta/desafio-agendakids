@@ -1,5 +1,5 @@
 class SchoolClass < ActiveRecord::Base
-  validates_presence_of :name, :shift
+  validates_presence_of :name, :shift, :school_unity
   validates_uniqueness_of :name, scope: :shift
 
   enum shift: [

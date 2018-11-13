@@ -21,7 +21,7 @@
 
 .form-card.mdl-card {
   width: 400px;
-  height: 400px;
+  min-height: 380px;
 }
 
 .form-title {
@@ -33,4 +33,11 @@
 
 .show-card {
   text-align: left;
+}
+
+.back-button {
+  position: absolute;
+  top: 120px;
+  left: 40px;
+  z-index: 4;
 }

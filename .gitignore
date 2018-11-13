@@ -3,6 +3,7 @@
 
 ### Ruby ###
 *.gem
+*.lock
 *.rbc
 /.config
 /coverage/

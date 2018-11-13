@@ -4,4 +4,8 @@ class Student < ActiveRecord::Base
 
   has_and_belongs_to_many :school_classes
   has_and_belongs_to_many :responsibles
+
+  def to_s
+  	return name
+  end
 end
