@@ -4,6 +4,22 @@
     <%= label_tag Student.human_attribute_name :name %>
     <h5><%= @student.name %></h5>
   </div>
-  <%= Student.human_attribute_name :registration %>
-  <h5><%= @student.registration %></h5>
+  <div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+	  <%= Student.human_attribute_name :email %>
+	  <h5><%= @student.registration %></h5>
+	</div>
+	<div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+	  <%= Responsible.model_name.human count: @student.responsibles.count %>
+	  <ul class="demo-list-item mdl-list">
+	  	<% @student.responsibles.each do |r| %>
+			  <li class="mdl-list__item">
+			    <span class="mdl-list__item-primary-content">
+				    <i class="material-icons mdl-list__item-icon">person</i>
+				    <%= r.name %>
+					</span>
+
+		  	</li>
+	  	<% end %>
+		</ul>
+	</div>
 </div>
