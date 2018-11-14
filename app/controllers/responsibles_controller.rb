@@ -21,7 +21,8 @@ class ResponsiblesController   < ApplicationController
 
   def create
     @responsible = Responsible.new(responsible_params)
-    @students = Student.find(params[:students])
+    @students = Student.where("id" => responsible_params["student_ids"])
+    @responsible.students << @students
     respond_to do |format|
       if @responsible.save
         format.html { redirect_to @responsible, notice: 'Responsible was successfully created.' }

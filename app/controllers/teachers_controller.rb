@@ -16,17 +16,20 @@ class TeachersController < ApplicationController
   # GET /teachers/new
   def new
     @teacher = Teacher.new
+    @teacher.school_unities.build
   end
 
   # GET /teachers/1/edit
   def edit
+    @teacher.school_unities.build
   end
 
   # POST /teachers
   # POST /teachers.json
   def create
     @teacher = Teacher.new(teacher_params)
-
+    @school_unities = SchoolUnity.where("id" => teacher_params["school_unity_ids"])
+    @teacher.school_unities << @school_unities
     respond_to do |format|
       if @teacher.save
         format.html { redirect_to @teacher, notice: 'Teacher was successfully created.' }
@@ -41,6 +44,9 @@ class TeachersController < ApplicationController
   # PATCH/PUT /teachers/1
   # PATCH/PUT /teachers/1.json
   def update
+    @school_unities = SchoolUnity.where("id" => teacher_params["school_unity_ids"])
+    @teacher.school_unities.delete_all
+    @teacher.school_unities << @school_unities
     respond_to do |format|
       if @teacher.update(teacher_params)
         format.html { redirect_to @teacher, notice: 'Teacher was successfully updated.' }
@@ -70,6 +76,6 @@ class TeachersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
-      params.require(:teacher).permit(:name, :registration)
+      params.require(:teacher).permit(:name, :registration, {:school_unity_ids => []})
     end
 end

@@ -9,6 +9,17 @@
         <%= f.label :registration, class: 'mdl-textfield__label' %>
         <%= f.text_field :registration, class: 'mdl-textfield__input', :maxlength => 6 %>
       </div>
+      <div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+        <%= f.label :school_unities, class: 'mdl-textfield__label' %>
+        <%= f.hidden_field :school_unities, class: 'mdl-textfield__input', :multiple => true %>
+        <div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+          <%= f.collection_check_boxes(:student_ids, SchoolUnity.all, :id, :to_s) do |s|
+            s.label(:"data-value" => s.value, class:"mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect") do
+              s.check_box(class: "mdl-checkbox__input", checked: (@teacher.school_unities.map(&:id).include?(s.value))) + s.text 
+            end
+          end %> 
+        </div>
+      </div>
       <%= f.submit t('save'), class: 'login-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
   <% end %>
 </div>
