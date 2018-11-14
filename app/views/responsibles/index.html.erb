@@ -5,6 +5,7 @@
   <tr>
     <th class='mdl-data-table__cell--non-numeric'><%= Responsible.human_attribute_name :name %></th>
     <th class='mdl-data-table__cell--non-numeric'><%= Responsible.human_attribute_name :email %></th>
+    <th class='mdl-data-table__cell--non-numeric'><%= Student.model_name.human count: 2 %></th>
     <th colspan='3'></th>
   </tr>
   </thead>
@@ -14,6 +15,7 @@
       <tr>
         <td class='mdl-data-table__cell--non-numeric'><%= responsible.name %></td>
         <td class='mdl-data-table__cell--non-numeric'><%= responsible.email %></td>
+        <td class='mdl-data-table__cell--non-numeric'><%= responsible.students.count %></td>
         <td>
           <%= form_for responsible, method: :get do |f| %>
               <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">

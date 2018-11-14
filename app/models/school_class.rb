@@ -10,4 +10,11 @@ class SchoolClass < ActiveRecord::Base
 
   belongs_to :school_unity
   has_and_belongs_to_many :students
+
+	attr_accessor :student_ids
+
+	def to_s
+		return name
+	end
+
 end

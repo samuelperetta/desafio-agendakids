@@ -4,6 +4,21 @@
     <%= label_tag SchoolClass.human_attribute_name :name %>
     <h5><%= @school_class.name %></h5>
   </div>
-  <%= SchoolClass.human_attribute_name :shift %>
-  <h5><%= @school_class.shift %></h5>
+  <div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+	  <%= SchoolClass.human_attribute_name :shift %>
+	  <h5><%= t("school_classes.shift.#{@school_class.shift}") %></h5>
+	</div>
+	<div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+	  <%= Student.model_name.human count: @school_class.students.count %>
+	  <ul class="demo-list-item mdl-list">
+	  	<% @school_class.students.each do |s| %>
+			  <li class="mdl-list__item">
+			    <span class="mdl-list__item-primary-content">
+				    <i class="material-icons mdl-list__item-icon">person</i>
+				    <%= s.name %>
+					</span>
+		  	</li>
+	  	<% end %>
+		</ul>
+	</div>
 </div>

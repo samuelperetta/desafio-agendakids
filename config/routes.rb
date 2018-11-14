@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :school_classes
   get 'schools/show'
 
   devise_scope :user do
@@ -12,10 +11,10 @@ Rails.application.routes.draw do
 
     devise_for :users
   end
-
   resources :school_unities
   resources :school_classes
   resources :teachers
   resources :students
   resources :responsibles
+  post 'responsible/:id',  to: 'responsibles#update'
 end

@@ -5,6 +5,7 @@
   <tr>
     <th class='mdl-data-table__cell--non-numeric'><%= SchoolUnity.human_attribute_name :name %></th>
     <th class='mdl-data-table__cell--non-numeric'><%= SchoolUnity.human_attribute_name :address %></th>
+    <th class='mdl-data-table__cell--non-numeric'><%= SchoolClass.model_name.human count: 2%></th>
     <th colspan='3'></th>
   </tr>
   </thead>
@@ -14,6 +15,7 @@
       <tr>
         <td class='mdl-data-table__cell--non-numeric'><%= school_unity.name %></td>
         <td class='mdl-data-table__cell--non-numeric'><%= school_unity.address %></td>
+        <td class='mdl-data-table__cell--non-numeric'><%= school_unity.school_classes.count %></td>
         <td>
           <%= form_for school_unity, method: :get do |f| %>
               <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">

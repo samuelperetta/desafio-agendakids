@@ -49,6 +49,7 @@ pt-BR:
     saved: Responsável salvo com sucesso
     edit:
       edit_responsible: Editar Responsável
+      students: Alunos
     show: 
       show_responsible: Dados Responsável
 
@@ -83,15 +84,20 @@ pt-BR:
       school_class:
         name:  Nome
         shift: Turno
+        school_unity: Unidade
+        school_class_school_unity_id: Unidade
+        students: Alunos
       teacher:
         name: Nome
         registration: Registro
       student:
         name: Nome
         registration: Registro
+        responsible: Responsáveis
       responsible:
         name: Nome
         email: E-mail
+        students: Alunos
     errors:
       format: ! '%{attribute} %{message}'
       messages:

@@ -12,4 +12,22 @@
 		  <%= School.model_name.human %>
 		  <h5><%= @school_unity.school.name %></h5>
 		</div>
+		<div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+	  	<%= SchoolClass.model_name.human count: @school_unity.school_classes.count %>
+		  <ul class="demo-list-item mdl-list">
+		  	<% unless @school_unity.school_classes %>
+			  	<% @school_unity.school_classes.each do |c| %>
+					  <li class="mdl-list__item">
+					    <span class="mdl-list__item-primary-content">
+						    <i class="material-icons mdl-list__item-icon">people</i>
+						    <%= c.name %>
+							</span>
+				  	</li>
+			  	<% end %>
+	  		<% else %>
+			  	<p> Nenhuma <%= SchoolClass.model_name.human %> relacionada </p>
+			 	<% end %>
+
+			</ul>
+		</div>
 </div>

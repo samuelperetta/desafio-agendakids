@@ -7,11 +7,22 @@
       </div>
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <%= f.label :shift, class: 'mdl-textfield__label' %>
-        <%= f.select(:shift, SchoolClass.shifts.keys.map {|shift| [t("school_classes.shift.#{shift}"),shift]}, {:include_blank => nil }, {:class => "mdl-textfield__input"} ) %>
+        <%= f.select(:shift, SchoolClass.shifts.keys.map {|shift| [t("school_classes.shift.#{shift}"),shift]}, {:include_blank => true }, {:class => "mdl-textfield__input"} ) %>
       </div>
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <%= f.label :school_class_school_unity_id, class: 'mdl-textfield__label' %>
-        <%= collection_select(:school_class, :school_unity_id, SchoolUnity.all, :id, :name, { :prompt => false } , {:class => "mdl-textfield__input"} ) %>
+        <%= collection_select(:school_class, :school_unity_id, SchoolUnity.all, :id, :name, { :prompt => false, :include_blank => true } , {:class => "mdl-textfield__input"} ) %>
+      </div>
+      <div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+        <%= f.label :students, class: 'mdl-textfield__label' %>
+        <%= f.hidden_field :students, class: 'mdl-textfield__input', :multiple => true %>
+        <div class='field mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+          <%= f.collection_check_boxes(:student_ids, Student.all, :id, :to_s) do |s|
+            s.label(:"data-value" => s.value, class:"mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect") do
+              s.check_box(class: "mdl-checkbox__input", checked: (@school_class.students.map(&:id).include?(s.value))) + s.text 
+            end
+          end %> 
+        </div>
       </div>
       <%= f.submit t('save'), class: 'login-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
   <% end %>

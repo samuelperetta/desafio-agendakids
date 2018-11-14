@@ -1,7 +1,7 @@
-<%= link_to School.model_name.human, schools_show_path, method: :get, class: "mdl-navigation__link" %>
-<%= link_to SchoolUnity.model_name.human(count: 2), school_unities_path, method: :get, class: "mdl-navigation__link" %>
-<%= link_to SchoolClass.model_name.human(count: 2), school_classes_path, method: :get, class: "mdl-navigation__link" %>
-<%= link_to Teacher.model_name.human(count: 2), teachers_path, method: :get, class: "mdl-navigation__link" %>
-<%= link_to Student.model_name.human(count: 2), students_path, method: :get, class: "mdl-navigation__link" %>
-<%= link_to Responsible.model_name.human(count: 2), responsibles_path, method: :get, class: "mdl-navigation__link" %>
-<%= link_to t('logout'), destroy_user_session_path, method: :delete, class: 'mdl-navigation__link' %>
+<%= link_to School.model_name.human, schools_show_path, method: :get, class: "mdl-navigation__link #{isPath(schools_show_path, controller_name)}" %>
+<%= link_to SchoolUnity.model_name.human(count: 2), school_unities_path, method: :get, class: "mdl-navigation__link #{isPath(school_unities_path, controller_name)}" %>
+<%= link_to SchoolClass.model_name.human(count: 2), school_classes_path, method: :get, class: "mdl-navigation__link #{isPath(school_classes_path, controller_name)}" %>
+<%= link_to Teacher.model_name.human(count: 2), teachers_path, method: :get, class: "mdl-navigation__link #{isPath(teachers_path, controller_name)}" %>
+<%= link_to Student.model_name.human(count: 2), students_path, method: :get, class: "mdl-navigation__link #{isPath(students_path, controller_name)}" %>
+<%= link_to Responsible.model_name.human(count: 2), responsibles_path, method: :get, class: "mdl-navigation__link #{isPath(responsibles_path, controller_name)}" %>
+<%= link_to t('logout'), destroy_user_session_path, method: :delete, class: "mdl-navigation__link" %>

@@ -2,31 +2,26 @@ class ResponsiblesController   < ApplicationController
   before_filter :authenticate_user!
   before_action :set_responsible, only: [:show, :edit, :update, :destroy]
 
-  # GET /responsibles
-  # GET /responsibles.json
   def index
     @responsibles = Responsible.all
   end
 
-  # GET /responsibles/1
-  # GET /responsibles/1.json
   def show
   end
 
-  # GET /responsibles/new
   def new
     @responsible = Responsible.new
+    @responsible.students.build
   end
 
-  # GET /responsibles/1/edit
   def edit
+    @method = :put
+    @responsible.students.build
   end
 
-  # POST /responsibles
-  # POST /responsibles.json
   def create
     @responsible = Responsible.new(responsible_params)
-
+    @students = Student.find(params[:students])
     respond_to do |format|
       if @responsible.save
         format.html { redirect_to @responsible, notice: 'Responsible was successfully created.' }
@@ -38,10 +33,11 @@ class ResponsiblesController   < ApplicationController
     end
   end
 
-  # PATCH/PUT /responsibles/1
-  # PATCH/PUT /responsibles/1.json
   def update
     respond_to do |format|
+      @students = Student.where("id" => responsible_params["student_ids"])
+      @responsible.students.delete_all
+      @responsible.students << @students
       if @responsible.update(responsible_params)
         format.html { redirect_to @responsible, notice: 'Responsible was successfully updated.' }
         format.json { render :show, status: :ok, location: @responsible }
@@ -52,8 +48,6 @@ class ResponsiblesController   < ApplicationController
     end
   end
 
-  # DELETE /responsibles/1
-  # DELETE /responsibles/1.json
   def destroy
     @responsible.destroy
     respond_to do |format|
@@ -63,13 +57,12 @@ class ResponsiblesController   < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_responsible
       @responsible = Responsible.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def responsible_params
-      params.require(:responsible).permit(:name, :registration)
+      params.require(:responsible).permit(:name, :email, {:student_ids => []} )
     end
 end
